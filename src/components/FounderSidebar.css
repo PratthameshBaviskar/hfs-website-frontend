@@ -1,0 +1,92 @@
+/* src/components/FounderSidebar.css */
+
+.founder-sidebar-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    width: 100%;
+
+    /* Desktop Sticky behavior */
+    position: sticky;
+    top: 140px;
+    /* Offset to clear fixed navbar + utility bar */
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.founder-sidebar-nav {
+    width: 100%;
+}
+
+.founder-sidebar-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.founder-sidebar-item {
+    width: 100%;
+}
+
+.founder-sidebar-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #444;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 8px;
+}
+
+.founder-sidebar-link:hover {
+    color: var(--primary-indigo, #8b2635);
+    background: rgba(139, 38, 53, 0.03);
+}
+
+/* ACTIVE STATE */
+.founder-sidebar-link.active {
+    background-color: var(--primary-indigo, #8b2635);
+    color: #ffffff !important;
+    font-weight: 600;
+    border-radius: 99px;
+    padding: 0.9rem 1.75rem;
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(139, 38, 53, 0.2);
+}
+
+.founder-sidebar-icon {
+    font-size: 0.75rem;
+    margin-left: 0.75rem;
+}
+
+/* Tablet & Mobile responsive behavior */
+@media (max-width: 1024px) {
+    .founder-sidebar-card {
+        position: static;
+        padding: 1rem;
+        box-shadow: none;
+        background: transparent;
+        border: none;
+    }
+
+    .founder-sidebar-list {
+        gap: 0.4rem;
+    }
+
+    .founder-sidebar-link {
+        padding: 0.75rem 1rem;
+    }
+
+    .founder-sidebar-link.active {
+        transform: none;
+        box-shadow: none;
+    }
+}

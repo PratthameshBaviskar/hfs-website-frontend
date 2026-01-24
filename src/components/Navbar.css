@@ -1,0 +1,249 @@
+/* ========== NAVBAR CORE FIX ========== */
+
+.navbar {
+  position: fixed;
+  top: 52px;
+  /* 40px utility bar + 12px breathing room */
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 1000;
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0));
+  padding-top: 0;
+  display: flex;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+
+/* Ensure centering */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.navbar .navbar-brand {
+  transform: translateY(0);
+}
+
+/* When scrolled */
+.navbar.scrolled {
+  top: 40px;
+  /* Sticks to bottom of utility bar */
+  background: #ffffff;
+  padding-top: 0;
+  height: 70px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.navbar.scrolled .navbar-brand {
+  transform: translateY(0);
+}
+
+/* ========== Desktop nav ========== */
+
+.nav-main {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 4rem;
+
+  /* Removed vertical jump issue */
+  transform: translateY(0);
+  transition: transform 0.4s ease;
+}
+
+.nav-main__list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-main__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-main__link,
+.nav-main__trigger {
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  white-space: nowrap;
+
+  /* Hero contrast */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  padding: 2rem 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+
+  transition: color 0.3s ease;
+}
+
+.nav-main__link {
+  position: relative;
+}
+
+.nav-main__link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.nav-main__link:hover::after {
+  width: 100%;
+}
+
+.nav-main__item:hover .nav-main__link,
+.nav-main__item:hover .nav-main__trigger {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ===== SCROLLED STATE ===== */
+
+.navbar.scrolled .nav-main__link,
+.navbar.scrolled .nav-main__trigger {
+  color: #1a1a1a;
+  text-shadow: none;
+}
+
+.navbar.scrolled .nav-main__link::after {
+  background: var(--primary-indigo);
+}
+
+.navbar.scrolled .nav-main__item:hover .nav-main__link,
+.navbar.scrolled .nav-main__item:hover .nav-main__trigger {
+  color: var(--primary-indigo);
+}
+
+/* Arrow */
+
+.nav-main__arrow {
+  font-size: 0.5rem;
+  opacity: 0.9;
+  transform: translateY(-1px);
+  transition: transform 0.25s ease;
+}
+
+.nav-main__item:hover .nav-main__arrow,
+button[aria-expanded="true"] .nav-main__arrow {
+  transform: translateY(-1px) rotate(180deg);
+}
+
+/* ========== Dropdown ========== */
+
+.nav-main__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 260px;
+  padding: 0.75rem 0;
+
+  background-color: #ffffff;
+  box-shadow: var(--shadow-medium);
+  border-top: 3px solid var(--primary-indigo);
+  border-radius: 0 0 8px 8px;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  pointer-events: none;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s;
+
+  z-index: 1001;
+}
+
+.nav-main__item:hover .nav-main__dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.nav-main__sublist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-main__sublink {
+  display: block;
+  padding: 0.8rem 1.5rem;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.nav-main__sublink:hover,
+.nav-main__sublink.active {
+  color: var(--gold-soft);
+  background-color: rgba(212, 175, 55, 0.06);
+  border-left-color: var(--gold-soft);
+}
+
+/* ========== Mobile Drawer ========== */
+
+.nav-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  background-color: #ffffff;
+  z-index: 1000;
+
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+
+  padding-top: 80px;
+  overflow-y: auto;
+}
+
+.nav-drawer--open {
+  transform: translateX(0);
+}
+
+/* ========== Responsive ========== */
+
+@media (max-width: 1024px) {
+  .nav-main {
+    display: none;
+  }
+}
+
+@media (min-width: 1025px) {
+  .nav-drawer {
+    display: none;
+  }
+}

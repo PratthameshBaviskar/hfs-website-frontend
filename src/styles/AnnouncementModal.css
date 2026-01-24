@@ -1,0 +1,139 @@
+/* AnnouncementModal.css */
+.announcement-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 600ms ease-out;
+  pointer-events: none;
+}
+
+.announcement-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.announcement-modal {
+  background-color: #fdfcfb;
+  /* Soft warm off-white */
+  width: 90%;
+  max-width: 700px;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-40px);
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1), opacity 700ms ease-out;
+  opacity: 0;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  /* Subtle gold border hint */
+}
+
+.announcement-overlay.active .announcement-modal {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.announcement-header {
+  background-color: #700000;
+  /* Rich HFS Maroon */
+  color: #ffffff;
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border-bottom: 3px solid #D4AF37;
+  /* Muted Gold Accent Line */
+}
+
+.announcement-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  font-family: inherit;
+}
+
+.close-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0;
+  line-height: 1;
+}
+
+.close-button:hover,
+.close-button:focus {
+  background-color: #D4AF37;
+  /* Gold on hover */
+  border-color: #D4AF37;
+  color: #700000;
+  transform: scale(1.1) rotate(90deg);
+  outline: none;
+}
+
+.announcement-body {
+  padding: 40px;
+  color: #3d3d3d;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.announcement-body p {
+  margin-bottom: 1.2rem;
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+.announcement-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Animations for text if needed, but keeping it subtle as per requirements */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .announcement-modal {
+    width: 92%;
+    border-radius: 16px;
+  }
+
+  .announcement-header {
+    padding: 18px 24px;
+  }
+
+  .announcement-title {
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+  }
+
+  .announcement-body {
+    padding: 30px 20px;
+  }
+
+  .announcement-body p {
+    font-size: 0.95rem;
+  }
+}

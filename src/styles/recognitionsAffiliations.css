@@ -1,0 +1,59 @@
+/* recognitionsAffiliations.css */
+
+.recognitions-affiliations {
+    padding: 64px 0 40px;
+    text-align: center;
+}
+
+.recognitions-affiliations .ra-group {
+    margin-bottom: 48px;
+}
+
+.recognitions-affiliations .ra-group:last-child {
+    margin-bottom: 0;
+}
+
+.recognitions-affiliations h3 {
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 32px;
+    color: var(--primary-indigo);
+    /* HFS Maroon */
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.recognitions-affiliations h3::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background-color: var(--gold-soft);
+    margin: 8px auto 0;
+}
+
+.recognitions-affiliations .logo-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    flex-wrap: wrap;
+}
+
+.recognitions-affiliations img {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .recognitions-affiliations .logo-row {
+        gap: 32px;
+    }
+
+    .recognitions-affiliations img {
+        height: 48px;
+    }
+}

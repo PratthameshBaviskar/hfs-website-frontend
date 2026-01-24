@@ -1,0 +1,280 @@
+/* LifeAtHFS.css */
+
+.life-at-hfs {
+    position: relative;
+    padding: 10rem 0;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+/* Layer 1: Background Layer with Abstract Gradient & Parallax */
+.life-bg-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    /* Taller for parallax */
+    background: linear-gradient(165deg, #fdfbf7 0%, #f7f3ed 40%, rgba(139, 38, 53, 0.03) 100%);
+    z-index: 1;
+    pointer-events: none;
+    transform: translateY(0);
+    will-change: transform;
+}
+
+.life-bg-accent {
+    position: absolute;
+    bottom: -10%;
+    right: -5%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(139, 38, 53, 0.05) 0%, rgba(139, 38, 53, 0) 70%);
+    filter: blur(60px);
+    z-index: 1;
+}
+
+/* Layer 2: Foreground Content */
+.life-content-layer {
+    position: relative;
+    z-index: 2;
+}
+
+.life-story-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+/* Left Side: Visual Story Block (Asymmetric & Overlapping) */
+.visual-story-block {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-visual-placeholder {
+    width: 85%;
+    aspect-ratio: 3/4;
+    /* Cinematic/Portrait ratio */
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    /* Subtle rounding for editorial feel */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.overlap-visual-placeholder {
+    position: absolute;
+    bottom: -10%;
+    left: -5%;
+    width: 50%;
+    aspect-ratio: 1/1;
+    background-color: #e8e8e8;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 8px solid #ffffff;
+    z-index: 2;
+}
+
+.visual-placeholder-text {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+}
+
+/* Right Side: Narrative Text Stack */
+.narrative-text-stack {
+    padding-right: 2rem;
+}
+
+.eyebrow-heading {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--primary-indigo);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.expressive-headline {
+    font-family: var(--font-heading);
+    font-size: 3.2rem;
+    color: var(--text-dark);
+    line-height: 1.15;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+}
+
+.narrative-paragraph {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    color: var(--text-grey);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    max-width: 90%;
+}
+
+/* Vertical Highlight Rows */
+.highlight-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.highlight-row {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    transition: all 0.4s ease;
+    cursor: default;
+}
+
+.highlight-row:last-child {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.highlight-row:hover {
+    padding-left: 1rem;
+    background: rgba(139, 38, 53, 0.02);
+}
+
+.highlight-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-indigo);
+    margin-right: 1.5rem;
+}
+
+.highlight-icon {
+    width: 28px;
+    height: 28px;
+}
+
+.highlight-info h4 {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    color: var(--text-dark);
+    margin: 0;
+    margin-bottom: 0.25rem;
+}
+
+.highlight-info p {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-grey);
+    margin: 0;
+}
+
+.highlight-row:hover .highlight-icon {
+    transform: scale(1.1);
+    color: var(--gold-soft);
+}
+
+/* Animations */
+.life-content-layer {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.life-content-layer.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Parallax Implementation via JS normally, but we'll use CSS for subtle feel */
+@keyframes subtle-float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.overlap-visual-placeholder {
+    animation: subtle-float 6s ease-in-out infinite;
+}
+
+/* Responsiveness */
+@media (max-width: 1200px) {
+    .expressive-headline {
+        font-size: 2.8rem;
+    }
+
+    .life-story-grid {
+        gap: 4rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .life-story-grid {
+        grid-template-columns: 1fr;
+        gap: 5rem;
+        text-align: center;
+    }
+
+    .narrative-text-stack {
+        padding-right: 0;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .narrative-paragraph {
+        margin: 0 auto 3rem;
+    }
+
+    .highlight-stack {
+        text-align: left;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .visual-story-block {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .life-at-hfs {
+        padding: 6rem 0;
+    }
+
+    .expressive-headline {
+        font-size: 2.2rem;
+    }
+
+    .main-visual-placeholder {
+        width: 100%;
+    }
+
+    .overlap-visual-placeholder {
+        width: 45%;
+        left: 0;
+        bottom: -5%;
+    }
+}
