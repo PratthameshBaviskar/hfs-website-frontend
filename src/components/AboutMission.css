@@ -1,0 +1,200 @@
+/* src/components/AboutMission.css */
+
+.mission-section {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 8rem 0;
+    overflow: hidden;
+    background-color: #faf9f7;
+    /* Keep it light and calm */
+}
+
+.mission-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 600px;
+    /* Fixed height for reliable layout mechanics */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Base states for animation */
+
+/* IMAGE CONTAINER */
+.mission-image-wrapper {
+    position: absolute;
+    width: 600px;
+    height: 480px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+    /* Initially centered */
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+    /* Premium easing */
+}
+
+/* Actual image handling */
+.mission-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* TEXT CONTENT CONTAINER */
+.mission-content-wrapper {
+    position: absolute;
+    width: 500px;
+    z-index: 1;
+    /* Behind image initially */
+    opacity: 0;
+    /* Initially hidden behind center */
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2rem;
+}
+
+/* ANIMATED STATE - TRIGGERED VIA JS CLASS */
+.mission-section.animate .mission-image-wrapper {
+    /* Move to left side */
+    left: 2rem;
+    /* Or calculated grid position */
+    transform: translateX(0);
+}
+
+.mission-section.animate .mission-content-wrapper {
+    /* Reveal to right side */
+    left: auto;
+    right: 2rem;
+    /* Stick to right */
+    transform: translateX(0);
+    opacity: 1;
+    z-index: 2;
+    /* Bring to same level as image for clarity after reveal */
+}
+
+/* Responsive Handling */
+@media (min-width: 1200px) {
+
+    /* Refine alignment for large screens */
+    .mission-section.animate .mission-image-wrapper {
+        left: 0;
+    }
+
+    .mission-section.animate .mission-content-wrapper {
+        right: 0;
+    }
+}
+
+
+/* Mission Text Styling */
+.mission-title {
+    font-family: var(--font-heading, "Georgia", serif);
+    font-size: 2.5rem;
+    color: var(--primary-indigo, #8b2635);
+    margin-bottom: 2rem;
+    position: relative;
+    opacity: 0;
+    /* Fade in specifically after movement starts */
+    transform: translateY(20px);
+    transition: opacity 1s ease 0.4s, transform 1s ease 0.4s;
+    /* Delayed fade in */
+}
+
+.mission-section.animate .mission-title {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mission-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--gold-soft, #d4af37);
+    margin-top: 1rem;
+    border-radius: 2px;
+}
+
+.mission-text {
+    font-family: var(--font-body, sans-serif);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease 0.6s, transform 1s ease 0.6s;
+}
+
+.mission-section.animate .mission-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* RESPONSIVE LAYOUT (Mobile/Tablet) - Disable Complex Animation */
+
+@media (max-width: 1024px) {
+    .mission-section {
+        padding: 4rem 2rem;
+        height: auto;
+    }
+
+    .mission-container {
+        height: auto;
+        flex-direction: column;
+        display: flex;
+        position: static;
+        gap: 3rem;
+    }
+
+    .mission-image-wrapper {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none !important;
+        width: 100%;
+        max-width: 600px;
+        height: 350px;
+        margin: 0 auto;
+    }
+
+    .mission-content-wrapper {
+        position: relative;
+        left: auto;
+        top: auto;
+        right: auto;
+        transform: none !important;
+        width: 100%;
+        max-width: 800px;
+        opacity: 1;
+        z-index: 2;
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .mission-title::after {
+        margin: 1rem auto;
+    }
+
+    .mission-title,
+    .mission-text {
+        opacity: 1 !important;
+        transform: none !important;
+        text-align: left;
+    }
+}

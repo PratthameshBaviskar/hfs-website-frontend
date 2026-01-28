@@ -1,11 +1,38 @@
-import React from "react";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import aboutHeroBanner from "../assets/images/aboutus_herobanner.JPG";
 import Breadcrumbs from "../components/Breadcrumbs";
 import AboutSidebar from "../components/AboutSidebar";
 import AboutImageSlider from "../components/AboutImageSlider";
+import AboutObjectives from "../components/AboutObjectives";
+import AboutMission from "../components/AboutMission";
 import "./about.css";
 
 const AboutUsPage = () => {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    // Handle Objectives Scroll
+    if (pathname === '/about/objectives' || hash === '#objectives') {
+      const element = document.getElementById('objectives');
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+
+    // Handle Mission Scroll
+    if (hash === '#mission') {
+      const element = document.getElementById('mission');
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [pathname, hash]);
+
   return (
     <div className="about-page-root">
       {/* HERO SECTION */}
@@ -51,7 +78,14 @@ const AboutUsPage = () => {
         </div>
 
         {/* IMAGE SLIDER - Spans Full Width */}
+        {/* IMAGE SLIDER - Spans Full Width */}
         <AboutImageSlider />
+
+        {/* OBJECTIVES SECTION - Spans Full Width */}
+        <AboutObjectives />
+
+        {/* MISSION SECTION - Spans Full Width */}
+        <AboutMission />
       </div>
     </div>
   );

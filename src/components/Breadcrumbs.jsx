@@ -6,12 +6,12 @@ const Breadcrumbs = ({ variant }) => {
     const pathname = location.pathname;
 
     // Determine if we're in the "Our School" section
-    const ourSchoolPaths = ['/about', '/about/founder-trustees', '/founder-trustees', '/principals-message', '/vision-mission-values', '/objectives'];
+    const ourSchoolPaths = ['/about', '/about/founder-trustees', '/founder-trustees', '/vision-mission-values', '/objectives'];
 
     const isOurSchoolSection = ourSchoolPaths.includes(pathname);
 
-    // Don't show breadcrumbs on the home page
-    if (pathname === '/' || pathname === '/campus') {
+    // Don't show breadcrumbs on the home page or academics pages (which self-handle breadcrumbs)
+    if (pathname === '/' || pathname === '/campus' || pathname.startsWith('/academics')) {
         return null;
     }
 
@@ -24,7 +24,6 @@ const Breadcrumbs = ({ variant }) => {
     const breadcrumbMap = {
         '/about': 'About Us',
         '/founder-trustees': 'Our Founder & Trustees',
-        '/principals-message': 'Principal’s Message',
         '/vision-mission-values': 'Vision, Mission & Values',
         '/objectives': 'Objectives',
         '/academics': 'Academics',

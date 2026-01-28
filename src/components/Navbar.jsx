@@ -11,45 +11,78 @@ const MENU_ITEMS = [
     submenu: [
       { label: "About Us", path: "/about" },
       { label: "Our Founder & Trustees", path: "/about/founder-trustees" },
-      { label: "Principal's Message", path: "/about/principals-message" },
-      { label: "Objectives", path: "/about/objectives" },
-      { label: "Mission", path: "/about/mission" },
+      { label: "Objectives", path: "/about#objectives" },
+      { label: "Mission", path: "/about#mission" },
     ],
   },
   {
     id: "academics",
     label: "Academics",
     hasDropdown: true,
-    submenu: [],
+    submenu: [
+      { label: "Pre Primary", path: "/academics/pre-primary" },
+      { label: "Primary", path: "/academics/primary" },
+      { label: "Secondary", path: "/academics/secondary" },
+      { label: "ISC", path: "/academics/isc" },
+    ],
   },
   {
-    id: "extracurriculars",
-    label: "Extracurriculars",
-    path: "/extracurriculars",
-  },
-  {
-    id: "events-achievements",
-    label: "Events and Achievements",
-    path: "/events-achievements",
+    id: "general-info",
+    label: "General Info",
+    path: "/general-info",
   },
   {
     id: "contact",
-    label: "Contact Us",
+    label: "Contact",
     path: "/contact",
+  },
+  {
+    id: "media-room",
+    label: "Media Room",
+    path: "/media-room",
   },
 ];
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileAccordion, setMobileAccordion] = useState(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Determine if at top or scrolled
+      setScrolled(currentScrollY > 50);
+
+      // Visibility logic: hide on scroll down, show on scroll up
+      // Only hide if scroll is past a threshold (150px) and mobile menu is closed
+      if (currentScrollY > lastScrollY && currentScrollY > 150 && !mobileOpen) {
+        setVisible(false);
+      } else {
+        setVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    let ticking = false;
+    const scrollListener = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", scrollListener);
+    return () => window.removeEventListener("scroll", scrollListener);
+  }, [lastScrollY, mobileOpen]);
 
   const openDropdown = (id) => setActiveDropdown(id);
   const closeDropdown = () => setActiveDropdown(null);
@@ -75,7 +108,7 @@ function Navbar() {
 
   return (
     <>
-      <div className="utility-bar">
+      <div className={`utility-bar ${!visible ? "utility-bar--hidden" : ""}`}>
         <div className="utility-container">
           <div className="utility-links">
             <span className="utility-link">Quick Links ▼</span>
@@ -86,7 +119,7 @@ function Navbar() {
         </div>
       </div>
 
-      <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
+      <header className={`navbar ${scrolled ? "scrolled" : ""} ${!visible ? "navbar--hidden" : ""}`}>
         <div className="navbar-container">
           <NavLink to="/" className="navbar-brand">
             <img src={hfsLogo} alt="Hiranandani Foundation School" className="navbar-logo" />

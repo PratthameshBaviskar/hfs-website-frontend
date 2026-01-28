@@ -1,0 +1,218 @@
+.why-hfs-section {
+    padding: 80px 0 100px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    border: none;
+}
+
+.why-hfs-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.why-hfs-heading {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 50px;
+    position: relative;
+    text-align: center;
+}
+
+.why-hfs-heading::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--gold-soft);
+}
+
+/* Honeycomb Grid Logic */
+.why-hfs-honeycomb-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    /* Vertical gap between rows */
+    padding: 20px 0;
+    perspective: 1000px;
+}
+
+.honeycomb-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    /* Horizontal gap between hexagons */
+}
+
+/* Offset second row */
+.honeycomb-row:nth-child(2) {
+    margin-top: -45px;
+    /* Pull row up to interlock */
+}
+
+.hexagon-wrapper {
+    width: 190px;
+    height: 220px;
+    position: relative;
+    cursor: pointer;
+    perspective: 1000px;
+    transition: transform 0.3s ease;
+}
+
+.hexagon-wrapper:hover {
+    z-index: 10;
+}
+
+.hexagon-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.35s ease-in-out;
+}
+
+.hexagon-wrapper.is-flipped .hexagon-card {
+    transform: rotateY(180deg);
+}
+
+.hexagon-front,
+.hexagon-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.hexagon-front {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.hexagon-back {
+    transform: rotateY(180deg);
+    background-color: #eee;
+}
+
+.hexagon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hexagon-front::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 60%);
+    z-index: 1;
+}
+
+.hexagon-text {
+    font-family: 'Outfit', 'Inter', var(--font-body);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #ffffff;
+    z-index: 3;
+    line-height: 1.25;
+    letter-spacing: 0.01em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    padding: 0 15px;
+}
+
+/* Premium Color Palette - Academic Calm Focus */
+.hexagon-front.is-teal {
+    background: linear-gradient(135deg, #4a6b6b 0%, #355050 100%);
+}
+
+.hexagon-front.is-blue {
+    background: linear-gradient(135deg, #4a607a 0%, #344456 100%);
+}
+
+.hexagon-front.is-gold {
+    background: linear-gradient(135deg, #c5a059 0%, #9a7d45 100%);
+}
+
+.hexagon-front.is-sage {
+    background: linear-gradient(135deg, #5f8575 0%, #466357 100%);
+}
+
+.hexagon-front.is-offwhite {
+    background: linear-gradient(135deg, #fdfdfd 0%, #f0f0f0 100%);
+}
+
+.hexagon-front.is-offwhite .hexagon-text {
+    color: #1a1a1a;
+    text-shadow: none;
+}
+
+/* Row 1 coloring (5 items) */
+/* Teal, Blue, Sage, Blue, Teal */
+/* Row 2 coloring (4 items) */
+/* Gold, sage, Blue, Gold */
+
+/* Interaction logic: only one flipped at a time (handled in React) */
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hexagon-wrapper {
+        width: 160px;
+        height: 185px;
+    }
+
+    .honeycomb-row:nth-child(2) {
+        margin-top: -38px;
+    }
+}
+
+@media (max-width: 768px) {
+    .why-hfs-honeycomb-grid {
+        gap: 10px;
+    }
+
+    .honeycomb-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .honeycomb-row:nth-child(2) {
+        margin-top: 10px;
+    }
+
+    .hexagon-wrapper {
+        width: 160px;
+        height: 185px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hexagon-wrapper {
+        width: 130px;
+        height: 150px;
+    }
+}

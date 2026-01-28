@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+
 /* 
 ⚠️ GLOBAL CSS LOCKED
 Do NOT add About / Sidebar / Layout styles here.
@@ -37,6 +39,8 @@ All About-related styles must go to /pages/about/about.css
   /* Light Neutral */
 
   /* Accent Colors */
+  --slate-calm: #3b4b5b;
+  /* Calm Slate Blue */
   --teal-muted: #2f4f4f;
   /* Deep Slate Teal for contrast if needed */
   --emerald-soft: #66bb6a;
@@ -139,6 +143,11 @@ a {
   justify-content: flex-end;
   /* Right aligned */
   align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.utility-bar--hidden {
+  transform: translateY(-100%);
 }
 
 /* ========== Breadcrumbs Styles ========== */
@@ -310,10 +319,15 @@ a {
   align-items: flex-start;
   /* Align top, allow hanging */
   padding-top: 10px;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease-in-out;
   box-shadow: none;
   /* No shadow initially */
   border-bottom: none;
+}
+
+.navbar--hidden {
+  transform: translateY(-130px);
+  /* Slightly more to be safe */
 }
 
 .navbar.scrolled {
@@ -590,6 +604,28 @@ a {
   padding: 0 var(--spacing-md);
   max-width: 900px;
   animation: fadeUp 0.8s ease-out;
+}
+
+.hero-wave {
+  position: absolute;
+  bottom: -1px;
+  /* Ensure no seam */
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  z-index: 11;
+  pointer-events: none;
+}
+
+.hero-wave svg {
+  display: block;
+  width: 100%;
+  height: 100px;
+  /* Professional asymmetrical wave height */
+}
+
+.hero-wave path {
+  fill: var(--slate-calm);
 }
 
 @keyframes fadeUp {
@@ -1304,8 +1340,8 @@ a {
   width: 100%;
   max-width: none;
   /* Full width */
-  background: var(--primary-indigo);
-  /* Solid HFS Maroon subtle */
+  background: var(--slate-calm);
+  /* Calm Slate Blue Transition */
   padding: 3.5rem 2rem;
   /* Significantly reduced padding */
   border-radius: 0;
@@ -1315,9 +1351,9 @@ a {
   color: #ffffff;
   pointer-events: auto;
 
-  /* Shallower, more professional curve */
-  border-top-left-radius: 50% 30px;
-  border-top-right-radius: 50% 30px;
+  /* Wave divider handles the curve now */
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 
@@ -1980,6 +2016,25 @@ nav,
   background: #faf7f3 !important;
 }
 
+/* New Modern Slate-Blue Branding */
+.section-slate {
+  background-color: var(--slate-calm) !important;
+  color: #ffffff !important;
+}
+
+.section-slate .section-title,
+.section-slate .section-subtitle,
+.section-slate h2,
+.section-slate h3,
+.section-slate h4,
+.section-slate p {
+  color: #ffffff !important;
+}
+
+.section-slate .section-divider {
+  background-color: var(--gold-soft) !important;
+}
+
 .fade-up {
   opacity: 0;
   transform: translateY(20px);
@@ -2288,8 +2343,8 @@ nav,
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(77, 18, 27, 0.92) 0%, rgba(139, 38, 53, 0.85) 100%);
-  /* Deep Maroon Gradient Overlay */
+  background: linear-gradient(135deg, rgba(59, 75, 91, 0.95) 0%, rgba(44, 62, 80, 0.92) 100%);
+  /* Slate-Blue Gradient Overlay (Calm and Professional) */
 }
 
 .impact-content {
@@ -2378,26 +2433,23 @@ nav,
   }
 }
 
-/* ========== Parent Trust & Achievements Section Fix ========== */
-.section-stats,
-.section-stats * {
-  color: #2b2b2b;
+/* ========== Parent Trust & Achievements Section (Slate Rebranded) ========== */
+.section-stats.section-slate * {
+  color: #ffffff;
 }
 
-.section-stats h2,
-.section-stats h3 {
-  color: var(--primary-indigo);
-  /* Using primary-indigo for HFS Maroon as per design system */
+.section-stats.section-slate h2,
+.section-stats.section-slate h3 {
+  color: #ffffff !important;
 }
 
-.section-stats .stat-number {
-  color: #d4a62a;
-  /* gold */
+.section-stats.section-slate .stat-number {
+  color: var(--gold-soft);
 }
 
-.section-stats .stat-label,
-.section-stats .stat-description {
-  color: #555;
+.section-stats.section-slate .stat-label,
+.section-stats.section-slate .stat-description {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* ========== Professional Institutional Leadership Layout ========== */

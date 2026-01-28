@@ -8,9 +8,6 @@ import RecognitionsAffiliations from '../components/RecognitionsAffiliations';
 import LifeAtHFS from '../components/LifeAtHFS';
 import EventsSection from '../components/EventsSection';
 import Achievements from '../components/Achievements';
-import LearningBeyondClassroom from '../components/LearningBeyondClassroom';
-import CampusFacilities from '../components/CampusFacilities';
-import StudentLife from '../components/StudentLife';
 import ParentTrust from '../components/ParentTrust';
 import AdmissionsJourney from '../components/AdmissionsJourney';
 import NewsHighlights from '../components/NewsHighlights';
@@ -26,11 +23,6 @@ function Home() {
           behavior: "smooth",
           block: "start",
         });
-      }
-    } else if (location.pathname === '/campus') {
-      const element = document.getElementById('facilities');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
       }
     }
   }, [location]);
@@ -56,6 +48,15 @@ function Home() {
             A learning environment that nurtures excellence, values, and global citizenship.
           </p>
         </div>
+
+        {/* MODERN ASYMMETRICAL WAVE DIVIDER */}
+        <div className="hero-wave">
+          <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M0,60 C240,110 480,10 720,60 C1000,110 1250,20 1440,50 V120 H0 Z"
+            />
+          </svg>
+        </div>
       </section>
 
       {/* Section 1: About HFS */}
@@ -67,30 +68,20 @@ function Home() {
       {/* Section 2.5: Impact Numbers */}
       <ImpactNumbers />
 
-
       {/* Section 2.6: Life At HFS (Editorial Story) */}
       <LifeAtHFS className="section-soft" />
 
       {/* Section 2.7: Events */}
-      <EventsSection />
+      <EventsSection className="section-slate" />
 
       {/* Section 2.8: Achievements & Accolades */}
       <Achievements className="section-soft" />
 
-      {/* Section 3: Learning Beyond Classroom */}
-      <LearningBeyondClassroom />
-
-      {/* Section 4: Campus & Facilities */}
-      <CampusFacilities className="section-soft" />
-
-      {/* Section 5: Student Life & Culture */}
-      <StudentLife />
-
       {/* Section 6: Parent Trust & Achievements */}
-      <ParentTrust className="section-soft" />
+      <ParentTrust />
 
       {/* Section 7: Admissions Journey */}
-      <AdmissionsJourney />
+      <AdmissionsJourney className="section-soft" />
 
       {/* News & Highlights */}
       <NewsHighlights className="section-soft" />

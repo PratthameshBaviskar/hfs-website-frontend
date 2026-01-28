@@ -6,9 +6,8 @@ const FounderSidebar = () => {
     const navItems = [
         { path: "/about", label: "About Us", end: true },
         { path: "/about/founder-trustees", label: "Our Founder & Trustees" },
-        { path: "/about/principals-message", label: "Principal’s Message" },
-        { path: "/about/objectives", label: "Objectives" },
-        { path: "/about/mission", label: "Mission" },
+        { path: "/about#objectives", label: "Objectives" },
+        { path: "/about#mission", label: "Mission" },
     ];
 
     return (

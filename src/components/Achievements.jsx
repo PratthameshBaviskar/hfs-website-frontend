@@ -9,7 +9,7 @@ import Top20Img from '../assets/images/top20-achievement.jfif';
 import ExcellenceImg from '../assets/images/kalyanipathakmam-achievement.jpg';
 import AsiaOneImg from '../assets/images/asiaonegreatestbrand_achievement.jpg';
 
-const AchievementCard = ({ accolade }) => {
+const AchievementCard = ({ accolade, className = "" }) => {
     const cardRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
 
@@ -32,7 +32,7 @@ const AchievementCard = ({ accolade }) => {
     }, []);
 
     return (
-        <div ref={cardRef} className={`achievement-card soft-elevation fade-up ${isVisible ? 'visible' : ''}`}>
+        <div ref={cardRef} className={`achievement-card soft-elevation fade-up ${isVisible ? 'visible' : ''} ${className}`}>
             <div className="achievement-image-wrapper">
                 <img src={accolade.image} alt={accolade.title} className="achievement-img" />
             </div>
@@ -75,7 +75,11 @@ const Achievements = ({ className = "" }) => {
 
                 <div className="achievements-grid">
                     {accolades.map((accolade, index) => (
-                        <AchievementCard key={index} accolade={accolade} />
+                        <AchievementCard
+                            key={index}
+                            accolade={accolade}
+                            className={index === 0 ? "first-achievement-fix" : ""}
+                        />
                     ))}
                 </div>
             </div>

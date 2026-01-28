@@ -1,0 +1,98 @@
+.academic-hero {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.academic-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            rgba(0, 0, 0, 0.7) 0%,
+            rgba(0, 0, 0, 0.45) 50%,
+            rgba(0, 0, 0, 0.1) 100%);
+    z-index: 1;
+}
+
+.academic-hero-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+.academic-hero-title {
+    font-family: "Playfair Display", serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+.academic-breadcrumbs {
+    font-family: "Inter", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    opacity: 0.9;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s 0.2s ease-out forwards;
+}
+
+.academic-breadcrumbs span {
+    opacity: 0.7;
+}
+
+.academic-breadcrumbs a {
+    color: #fff;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.academic-breadcrumbs a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.academic-breadcrumbs .current {
+    color: #d4af37;
+    /* Gold accent */
+    font-weight: 600;
+    opacity: 1;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .academic-hero {
+        height: 50vh;
+    }
+
+    .academic-hero-title {
+        font-size: 2.5rem;
+    }
+}

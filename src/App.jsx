@@ -12,18 +12,17 @@ import Placeholder from "./pages/Placeholder";
 import AboutUsPage from "./pages/AboutUsPage";
 import FounderTrustees from "./pages/about/FounderTrustees";
 import AboutPageWrapper from "./pages/AboutPageWrapper";
-
-/* ❌ OLD ABOUT — TEMPORARILY DISABLED */
-// import AboutLayout from "./pages/about/AboutLayout";
-// import AboutGeneral from "./pages/about/AboutGeneral";
-// import FounderTrustees from "./pages/about/FounderTrustees";
-// import PrincipalsMessage from "./pages/about/PrincipalsMessage";
-// import VisionMission from "./pages/about/VisionMission";
-// import Objectives from "./pages/about/Objectives";
-// import Governance from "./pages/about/Governance";
-// import Accreditations from "./pages/about/Accreditations";
+import ICSE from "./pages/academics/ICSE";
+import ISC from "./pages/academics/ISC";
+import PrePrimary from "./pages/academics/PrePrimary";
+import Primary from "./pages/academics/Primary";
+import Secondary from "./pages/academics/Secondary";
+import MediaRoom from "./pages/MediaRoom";
 
 function App() {
+
+
+
   return (
     <div className="app">
       <AnnouncementModal />
@@ -35,13 +34,21 @@ function App() {
         <Route path="/campus" element={<Home />} />
         <Route path="/about" element={<AboutUsPage />} />
         <Route path="/about/founder-trustees" element={<FounderTrustees />} />
-        <Route path="/about/principals-message" element={<AboutPageWrapper><Placeholder /></AboutPageWrapper>} />
         <Route path="/about/objectives" element={<AboutPageWrapper><Placeholder /></AboutPageWrapper>} />
-        <Route path="/about/mission" element={<AboutPageWrapper><Placeholder /></AboutPageWrapper>} />
+
+        <Route path="/academics/icse" element={<ICSE />} />
+        <Route path="/academics/isc" element={<ISC />} />
+        <Route path="/academics/pre-primary" element={<PrePrimary />} />
+        <Route path="/academics/primary" element={<Primary />} />
+        <Route path="/academics/secondary" element={<Secondary />} />
+
+        <Route path="/media-room" element={<MediaRoom />} />
+
         <Route path="/extracurriculars" element={<Placeholder />} />
         <Route path="/events-achievements" element={<Placeholder />} />
         <Route path="/contact" element={<Placeholder />} />
       </Routes>
+
 
       <Footer />
     </div>

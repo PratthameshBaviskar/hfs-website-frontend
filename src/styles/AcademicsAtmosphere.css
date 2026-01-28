@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap');
+
+.academics-atmosphere-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #ffffff;
+    /* Pure white base */
+    --scroll-y: 0;
+}
+
+/* 2️⃣ SOFT GRADIENT ATMOSPHERE (STATIC BASE) */
+.academics-atmosphere-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: linear-gradient(to bottom,
+            #ffffff 0%,
+            rgba(244, 244, 244, 0.4) 25%,
+            rgba(232, 213, 183, 0.05) 50%,
+            rgba(139, 38, 53, 0.02) 75%,
+            #ffffff 100%);
+}
+
+/* 3️⃣ SCROLL-RESPONSIVE DEPTH FIELD (THE MAGIC) */
+.academics-atmosphere-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.06;
+    background:
+        radial-gradient(circle at 20% 30%, var(--gold-soft) 0%, transparent 40%),
+        radial-gradient(circle at 80% 60%, var(--primary-indigo) 0%, transparent 40%),
+        radial-gradient(circle at 40% 85%, var(--teal-muted) 0%, transparent 40%);
+    filter: blur(80px);
+    transform: translateY(calc(var(--scroll-y) * -0.05px));
+    /* Gentle vertical drift */
+    transition: transform 0.2s linear;
+}
+
+/* 4️⃣ SECTION ANCHORING */
+.academics-atmosphere-wrapper>section,
+.academics-atmosphere-wrapper>div {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0;
+    /* Control rhythm via padding and spacing */
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+/* Remove padding from hero as it has its own spacing */
+.academics-atmosphere-wrapper>section:first-of-type {
+    padding-top: 0;
+}
+
+/* Spacing + light shadow separation for grounding */
+.academics-atmosphere-wrapper>section.is-grounded {
+    background: transparent;
+}
+
+/* 5️⃣ SCROLL TRANSITION POLISH */
+.reveal-on-scroll {
+    opacity: 0.98;
+    transform: translateY(6px);
+    transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
+        transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Specific tweaks for Academics sections */
+.why-hfs-section {
+    background-color: transparent !important;
+    /* Allow atmosphere to show through */
+}
+
+.faq-section {
+    background-color: transparent !important;
+}
+
+.diagram-section-container,
+.secondary-diagram,
+.primary-diagram,
+.preprimary-diagram,
+.isc-diagram {
+    background-color: transparent !important;
+}
+
+@media (max-width: 768px) {
+    .academics-atmosphere-wrapper::after {
+        opacity: 0.03;
+        filter: blur(40px);
+        transform: translateY(calc(var(--scroll-y) * -0.02px));
+    }
+
+    .academics-atmosphere-wrapper>section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+}

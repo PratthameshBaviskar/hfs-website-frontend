@@ -2,32 +2,72 @@
 
 .navbar {
   position: fixed;
-  top: 52px;
-  /* 40px utility bar + 12px breathing room */
+  top: 40px;
+  /* Sticks to bottom of utility bar (40px) */
   left: 0;
   width: 100%;
   height: 80px;
   z-index: 1000;
-  background: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0.45),
-      rgba(0, 0, 0, 0.15),
-      rgba(0, 0, 0, 0));
+  background: transparent;
   padding-top: 0;
   display: flex;
   align-items: center;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease-in-out;
 }
 
-/* Ensure centering */
+.navbar.navbar--hidden {
+  transform: translateY(-120px);
+  /* Hide completely (height + top offset) */
+}
+
+.utility-bar {
+  transition: all 0.3s ease-in-out;
+}
+
+.utility-bar.utility-bar--hidden {
+  transform: translateY(-100%);
+}
+
+/* Continuous Soft White Fade Behind Navbar in Container */
 .navbar-container {
+  position: relative;
+  /* Required for pseudo-element positioning */
   display: flex;
   align-items: center;
   width: 100%;
   height: 100%;
+  overflow: visible;
+}
+
+.navbar-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0.75) 0%,
+      rgba(255, 255, 255, 0.45) 40%,
+      rgba(255, 255, 255, 0.18) 80%,
+      rgba(255, 255, 255, 0.00) 100%);
+  pointer-events: none;
+  z-index: -1;
+  /* Behind content */
+  transition: opacity 0.4s ease;
 }
 
 .navbar .navbar-brand {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transform: translateY(0);
+}
+
+.navbar-logo {
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1));
+  /* Very subtle shadow for extra legibility */
 }
 
 /* When scrolled */
@@ -38,6 +78,10 @@
   padding-top: 0;
   height: 70px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.navbar.scrolled .navbar-container::before {
+  opacity: 0;
 }
 
 .navbar.scrolled .navbar-brand {
@@ -246,4 +290,13 @@ button[aria-expanded="true"] .nav-main__arrow {
   .nav-drawer {
     display: none;
   }
+}
+
+/* ========== Academics Dropdown Specific ========== */
+#menu-academics {
+  transform: translateY(-6px);
+}
+
+.nav-main__item:hover #menu-academics {
+  transform: translateY(0);
 }

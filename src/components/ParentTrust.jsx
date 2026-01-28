@@ -10,7 +10,8 @@ function ParentTrust({ className = "" }) {
   ];
 
   return (
-    <section className={`section section-stats ${className}`} id="parent-trust">
+    <section className={`section section-stats ${className}`} id="parent-trust" style={{ paddingBottom: 0 }}>
+      {/* HEADER SECTION - WHITE BACKGROUND */}
       <div className="section-container">
         <div className="section-header">
           <h2 className="section-title fade-up">
@@ -22,20 +23,45 @@ function ParentTrust({ className = "" }) {
             character development, and student success.
           </p>
         </div>
-        <div className="grid grid-4" style={{ marginTop: '3rem' }}>
-          {achievements.map((achievement, index) => (
-            <div key={index} className="fade-up" style={{ textAlign: 'center', padding: '2rem' }}>
-              <div className="stat-number" style={{ fontSize: '3.5rem', fontWeight: '700', marginBottom: '0.5rem' }}>
-                {achievement.value}
+      </div>
+
+      {/* STATISTICS BAND - CHARCOAL/SLATE BACKGROUND */}
+      <div style={{
+        backgroundColor: 'var(--slate-calm)',
+        width: '100%',
+        padding: '5rem 0',
+        marginTop: '3rem',
+        color: '#ffffff'
+      }}>
+        <div className="section-container">
+          <div className="grid grid-4">
+            {achievements.map((achievement, index) => (
+              <div key={index} className="fade-up" style={{ textAlign: 'center', padding: '1rem' }}>
+                <div className="stat-number" style={{
+                  fontSize: '3.5rem',
+                  fontWeight: '700',
+                  marginBottom: '1rem',
+                  color: 'var(--gold-soft)' // Gold numbers
+                }}>
+                  {achievement.value}
+                </div>
+                <h3 className="stat-label" style={{
+                  fontSize: '1.25rem',
+                  marginBottom: '0.5rem',
+                  color: '#ffffff', // White titles
+                  fontFamily: 'var(--font-heading)'
+                }}>
+                  {achievement.title}
+                </h3>
+                <p className="stat-description" style={{
+                  fontSize: '0.95rem',
+                  color: 'rgba(255, 255, 255, 0.8)' // Soft white description
+                }}>
+                  {achievement.description}
+                </p>
               </div>
-              <h3 className="stat-label" style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>
-                {achievement.title}
-              </h3>
-              <p className="stat-description" style={{ fontSize: '0.95rem' }}>
-                {achievement.description}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

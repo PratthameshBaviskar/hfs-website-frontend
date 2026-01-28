@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap');
+
+/* CosmicAtmosphere.css - Refined for "Quiet Universe" with Cinematic Reveal */
+
+/* 1. Base Gradient Background (The Universe) */
+/* 1. Base Gradient Background (The Universe) */
+/* 1. Base Gradient Background (The Universe) */
+/* 1. Base Gradient Background (The Universe) */
+.primary-diagram.cosmic-mode,
+.preprimary-diagram.cosmic-mode,
+.secondary-diagram.cosmic-mode,
+.isc-diagram.cosmic-mode {
+    background: radial-gradient(circle at 50% 30%, #1a2640 0%, #0B132B 60%, #050a18 100%);
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    /* DEFAULT STATE: Hidden (will be revealed by JS on scroll) */
+    opacity: 0;
+    transition: opacity 800ms ease-out;
+    /* Cinematic fade-in (0.8s) */
+}
+
+/* 2. REVEALED STATE (Applied by Scroll Logic) */
+.primary-diagram.cosmic-mode.is-revealed-universe,
+.preprimary-diagram.cosmic-mode.is-revealed-universe,
+.secondary-diagram.cosmic-mode.is-revealed-universe,
+.isc-diagram.cosmic-mode.is-revealed-universe {
+    opacity: 1;
+}
+
+/* 3. Starfield Canvas Container */
+.cosmic-starfield-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* 4. HERO -> UNIVERSE "SECRET REVEAL" TRANSITION */
+.cosmic-hero-transition {
+    position: absolute;
+    top: -150px;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    /* Extended blending zone */
+    z-index: 10;
+    pointer-events: none;
+
+    /* The Magical Gradient: Transparent -> Deep Navy atmosphere */
+    background: linear-gradient(to bottom,
+            rgba(11, 19, 43, 0) 0%,
+            rgba(11, 19, 43, 0.6) 40%,
+            #0B132B 100%);
+}
+
+/* 5. RADIANT SOLAR GLOW (The "Source of Energy") */
+.primary-solar-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 650px;
+    height: 650px;
+    border-radius: 50%;
+
+    /* BRIGHTER Cosmic Cyan / Electric Blue */
+    background: radial-gradient(circle,
+            rgba(80, 220, 255, 0.45) 0%,
+            /* Intense Core Cyan */
+            rgba(60, 120, 255, 0.25) 35%,
+            /* Soft Blue Mid */
+            transparent 70%);
+
+    z-index: 1;
+    /* Behind orbit */
+    pointer-events: none;
+    opacity: 0.9;
+    mix-blend-mode: screen;
+
+    /* Breathing animation */
+    animation: cosmic-pulse 5s ease-in-out infinite;
+}
+
+/* Secondary outer halo for extra depth */
+.primary-solar-glow::before {
+    content: '';
+    position: absolute;
+    inset: -50px;
+    /* Wider */
+    background: radial-gradient(circle,
+            rgba(100, 210, 255, 0.15) 0%,
+            transparent 60%);
+    border-radius: 50%;
+    animation: cosmic-pulse 7s ease-in-out infinite reverse;
+}
+
+@keyframes cosmic-pulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.15);
+        /* More visible pulse */
+        opacity: 1;
+    }
+}
+
+/* 6. ORBITAL DUST (Still relevant, kept subtle) */
+.cosmic-dust-track {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.cosmic-dust-particle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.5);
+    /* White dust */
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.7);
+}
+
+@keyframes orbit-dust {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg) translateX(var(--radius));
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg) translateX(var(--radius));
+    }
+}
+
+/* Ensure existing content sits above */
+.primary-orbital-container {
+    z-index: 10;
+}
