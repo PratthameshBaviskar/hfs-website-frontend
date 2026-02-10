@@ -3,6 +3,8 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import '../styles/LifeAtHFS.css';
+import visualImage1 from '../assets/images/visualimage1.JPG';
+import visualImage2 from '../assets/images/visualimage2.JPG';
 
 const HighlightRow = ({ icon, title, descriptor }) => (
     <div className="highlight-row">
@@ -97,11 +99,19 @@ const LifeAtHFS = ({ className = "" }) => {
 
                     {/* Visual Story Block */}
                     <div className="visual-story-block">
-                        <div className="main-visual-placeholder">
-                            <span className="visual-placeholder-text">Visual coming soon</span>
+                        <div className="main-visual-placeholder hfs-framed-image" style={{ padding: '6px', backgroundColor: 'transparent' }}>
+                            <img
+                                src={visualImage1}
+                                alt="Student activity at HFS"
+                                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                            />
                         </div>
-                        <div className="overlap-visual-placeholder">
-                            <span className="visual-placeholder-text">Visual coming soon</span>
+                        <div className="overlap-visual-placeholder hfs-framed-image" style={{ padding: '6px', backgroundColor: '#fff' }}>
+                            <img
+                                src={visualImage2}
+                                alt="HFS Life Moment"
+                                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                            />
                         </div>
                     </div>
 

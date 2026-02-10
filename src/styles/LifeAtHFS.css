@@ -57,16 +57,23 @@
 .main-visual-placeholder {
     width: 85%;
     aspect-ratio: 3/4;
-    /* Cinematic/Portrait ratio */
-    background-color: #f0f0f0;
-    border-radius: 4px;
-    /* Subtle rounding for editorial feel */
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    overflow: hidden;
+    /* Frame style handled by global .hfs-framed-image class on the IMG itself or wrapper */
+    /* Keeping layout properties only */
+    background-color: transparent;
+    border-radius: 4px;
+}
+
+.main-visual-placeholder img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+    /* Slightly tighter radius for image inside frame */
 }
 
 .overlap-visual-placeholder {
@@ -75,14 +82,21 @@
     left: -5%;
     width: 50%;
     aspect-ratio: 1/1;
-    background-color: #e8e8e8;
-    border-radius: 4px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 8px solid #ffffff;
-    z-index: 2;
+    /* Frame style handled by global .hfs-framed-image class */
+    background-color: transparent;
+    border-radius: 4px;
+}
+
+.overlap-visual-placeholder img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
 }
 
 .visual-placeholder-text {
@@ -201,23 +215,6 @@
 }
 
 /* Parallax Implementation via JS normally, but we'll use CSS for subtle feel */
-@keyframes subtle-float {
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-15px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-}
-
-.overlap-visual-placeholder {
-    animation: subtle-float 6s ease-in-out infinite;
-}
 
 /* Responsiveness */
 @media (max-width: 1200px) {

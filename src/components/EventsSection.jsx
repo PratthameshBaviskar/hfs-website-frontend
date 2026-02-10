@@ -41,14 +41,14 @@ const EventCard = ({ event, index }) => {
     return (
         <div
             ref={cardRef}
-            className={`event-card soft-elevation ${isVisible ? 'visible' : ''} ${!isEven ? 'reverse' : ''}`}
+            className={`event-card soft-elevation ${isVisible ? 'visible' : ''} ${!isEven ? 'reverse' : ''} ${event.title.includes('Nobel') ? 'nobel-laureate-card' : ''}`}
         >
             {/* JSX Rendering with both images */}
             <div className="event-image-collage">
-                <div className="collage-img-wrapper large">
+                <div className="collage-img-wrapper large hfs-framed-image">
                     <img src={event.images[0]} alt={`${event.title} - 1`} className="event-img" />
                 </div>
-                <div className="collage-img-wrapper small">
+                <div className="collage-img-wrapper small hfs-framed-image">
                     <img src={event.images[1]} alt={`${event.title} - 2`} className="event-img" />
                 </div>
             </div>
@@ -89,7 +89,7 @@ const EventsSection = ({ className = "" }) => {
         <section className={`section events-section ${className}`} id="events">
             <div className="section-container">
                 <header className="events-header">
-                    <h2 className="fade-up">Events at HFS Powai</h2>
+                    <h2 className="section-title fade-up">Events at HFS Powai</h2>
                     <div className="section-divider"></div>
                     <p>Celebrating learning, leadership, culture, and global exposure</p>
                 </header>

@@ -27,14 +27,14 @@ const MENU_ITEMS = [
     ],
   },
   {
-    id: "general-info",
-    label: "General Info",
-    path: "/general-info",
+    id: "admissions",
+    label: "Admissions",
+    path: "/admissions",
   },
   {
     id: "contact",
     label: "Contact",
-    path: "/contact",
+    path: "/contact-us",
   },
   {
     id: "media-room",
@@ -113,7 +113,6 @@ function Navbar() {
           <div className="utility-links">
             <span className="utility-link">Quick Links ▼</span>
             <a href="https://hfspowai.in" className="utility-link">Login</a>
-            <span className="utility-link">Contact Us</span>
             <span className="utility-btn">Inquire</span>
           </div>
         </div>

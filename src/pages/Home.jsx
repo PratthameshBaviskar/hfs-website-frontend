@@ -27,6 +27,14 @@ function Home() {
     }
   }, [location]);
 
+  useEffect(() => {
+    document.body.classList.add('home-page');
+    // For homepage only reversions
+    return () => {
+      document.body.classList.remove('home-page');
+    };
+  }, []);
+
   return (
     <main className="home">
       {/* Hero Section */}

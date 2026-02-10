@@ -1,0 +1,197 @@
+/* AdmissionsProcess.css */
+
+.admissions-process-section {
+    width: 100%;
+    padding: 100px 20px;
+    background-color: var(--hfs-bg-white);
+    /* Warm off-white */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.process-header {
+    max-width: 800px;
+    margin: 0 auto 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.process-title {
+    font-family: var(--font-heading, serif);
+    font-size: 2.2rem;
+    /* Match global .section-title */
+    font-weight: 600;
+    color: var(--primary-indigo);
+    /* Explicitly match global maroon token */
+    letter-spacing: -0.01em;
+    /* Match global .section-title */
+    margin-bottom: 24px;
+    position: relative;
+    display: inline-block;
+}
+
+.process-divider {
+    width: 80px;
+    height: 3px;
+    background-color: var(--gold-soft);
+    margin-bottom: 24px;
+    border-radius: 2px;
+}
+
+.process-subtitle {
+    font-family: var(--font-body, sans-serif);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-charcoal);
+    max-width: 650px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* Steps Container */
+.process-steps-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1400px;
+    /* Generous width for 5 items */
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Connector Line (Desktop) */
+.process-steps-container::before {
+    content: '';
+    position: absolute;
+    top: 60px;
+    /* Aligned with icon center roughly */
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    border-top: 2px dotted rgba(212, 175, 55, 0.4);
+    /* Gold dotted line */
+    z-index: -1;
+}
+
+/* Individual Step Card */
+.process-card {
+    flex: 1;
+    background: #ffffff;
+    padding: 40px 24px;
+    border-radius: 12px;
+    border: 1px solid rgba(139, 38, 53, 0.08);
+    /* Subtle maroon tint */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    /* Extremely light shadow */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-width: 200px;
+}
+
+.process-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(139, 38, 53, 0.1);
+    border-color: rgba(139, 38, 53, 0.2);
+}
+
+/* Icon Container */
+.process-icon-box {
+    width: 70px;
+    height: 70px;
+    background-color: #ffffff;
+    /* Interrupts the dotted line */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    /* Gold ring */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.process-card:hover .process-icon-box {
+    border-color: var(--gold-soft);
+    background-color: var(--hfs-bg-white);
+}
+
+.process-icon {
+    font-size: 28px;
+    color: var(--hfs-maroon);
+}
+
+/* Typography */
+.process-step-title {
+    font-family: var(--font-heading, serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--hfs-maroon);
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+}
+
+.process-step-desc {
+    font-family: var(--font-body, sans-serif);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #666;
+    /* Muted gray */
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .process-steps-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .process-steps-container::before {
+        display: none;
+        /* Hide connector on wraps */
+    }
+
+    .process-card {
+        flex: 1 1 30%;
+        /* 3 per row */
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .process-steps-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .process-card {
+        width: 100%;
+        max-width: 100%;
+        flex-direction: row;
+        /* Horizontal card for mobile */
+        text-align: left;
+        align-items: flex-start;
+        padding: 24px;
+    }
+
+    .process-icon-box {
+        margin-bottom: 0;
+        margin-right: 20px;
+        flex-shrink: 0;
+        width: 60px;
+        height: 60px;
+    }
+
+    .process-step-title {
+        font-size: 1rem;
+        margin-top: 4px;
+    }
+}

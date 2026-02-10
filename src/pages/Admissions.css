@@ -1,0 +1,106 @@
+.admissions-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ================= HERO SECTION ================= */
+/* Matches .primary-hero structure from Primary.css exactly */
+.admissions-hero {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    min-height: 500px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+/* Background Image - No Filters */
+.admissions-hero__bg {
+    position: absolute;
+    inset: 0;
+    background-color: #1a1a1a;
+    /* Fallback */
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+/* Overlay for Text Readability - White Fade */
+.admissions-hero__overlay {
+    position: absolute;
+    inset: 0;
+    /* White fade starting below navbar (opaque white -> transparent) */
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 0.9) 15%,
+            rgba(255, 255, 255, 0) 40%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Content Wrapper */
+.admissions-hero__content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    margin-top: 100px;
+    /* Essential for clearing navbar */
+    text-align: left;
+}
+
+.admissions-hero__container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Title Styling - Identical to Primary */
+.admissions-hero__title {
+    font-family: var(--font-heading, serif);
+    font-size: 4rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0.5rem 0 0;
+    line-height: 1.1;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Breadcumb Styling - Identical to Primary */
+.admissions-hero__breadcrumb {
+    font-family: var(--font-body, sans-serif);
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.admissions-hero__separator {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+    .admissions-hero__title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .admissions-hero {
+        height: 50vh;
+    }
+
+    .admissions-hero__title {
+        font-size: 2.5rem;
+    }
+}

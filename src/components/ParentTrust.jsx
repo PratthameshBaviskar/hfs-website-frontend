@@ -27,7 +27,7 @@ function ParentTrust({ className = "" }) {
 
       {/* STATISTICS BAND - CHARCOAL/SLATE BACKGROUND */}
       <div style={{
-        backgroundColor: 'var(--slate-calm)',
+        backgroundColor: 'var(--hfs-maroon)',
         width: '100%',
         padding: '5rem 0',
         marginTop: '3rem',

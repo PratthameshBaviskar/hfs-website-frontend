@@ -11,7 +11,7 @@ const Breadcrumbs = ({ variant }) => {
     const isOurSchoolSection = ourSchoolPaths.includes(pathname);
 
     // Don't show breadcrumbs on the home page or academics pages (which self-handle breadcrumbs)
-    if (pathname === '/' || pathname === '/campus' || pathname.startsWith('/academics')) {
+    if (pathname === '/' || pathname === '/campus' || pathname.startsWith('/academics') || pathname === '/contact' || pathname === '/contact-us' || pathname === '/admissions') {
         return null;
     }
 
@@ -27,7 +27,6 @@ const Breadcrumbs = ({ variant }) => {
         '/vision-mission-values': 'Vision, Mission & Values',
         '/objectives': 'Objectives',
         '/academics': 'Academics',
-        '/general-info': 'General Info',
         '/contact': 'Contact',
         '/media-room': 'Media Room'
     };
