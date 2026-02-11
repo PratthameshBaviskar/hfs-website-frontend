@@ -41,8 +41,7 @@ const AdmissionsProcess = () => {
 
                 {/* Section Header */}
                 <div className="process-header">
-                    <h2 className="process-title">Admission Process</h2>
-                    <div className="process-divider"></div>
+                    <h2 className="section-heading">Admission Process</h2>
                     <p className="process-subtitle">
                         Our admission journey is thoughtfully designed to ensure clarity, fairness, and a supportive experience for every family.
                     </p>

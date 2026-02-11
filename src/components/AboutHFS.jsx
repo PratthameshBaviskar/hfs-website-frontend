@@ -6,8 +6,7 @@ function AboutHFS({ className = "" }) {
     <section className={`section overlap-section ${className}`} id="about">
       <div className="section-container overlap-container">
         <div className="who-we-are-content">
-          <h2 className="section-title text-center fade-up">WHO WE ARE</h2>
-          <div className="section-divider"></div>
+          <h2 className="section-heading text-center fade-up">Who We Are</h2>
           <div className="who-we-are-body">
             <p>
               Hiranandani Foundation School is a premier educational institution dedicated to nurturing global citizens.

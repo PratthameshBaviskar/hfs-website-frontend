@@ -28,7 +28,7 @@ const WhyHFS = ({ items }) => {
     return (
         <section id="why-hfs-honeycomb" className="why-hfs-section">
             <div className="why-hfs-container">
-                <h2 className="why-hfs-heading">WHY HFS</h2>
+                <h2 className="section-heading">Why HFS</h2>
 
                 <div className="why-hfs-honeycomb-grid">
                     {/* Row 1: 5 Hexagons */}

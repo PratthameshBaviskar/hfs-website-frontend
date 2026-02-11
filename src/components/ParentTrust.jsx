@@ -14,10 +14,9 @@ function ParentTrust({ className = "" }) {
       {/* HEADER SECTION - WHITE BACKGROUND */}
       <div className="section-container">
         <div className="section-header">
-          <h2 className="section-title fade-up">
+          <h2 className="section-heading fade-up">
             Parent Trust & Achievements
           </h2>
-          <div className="section-divider"></div>
           <p className="section-subtitle stat-description">
             Trusted by thousands of families, HFS has a proven track record of academic excellence,
             character development, and student success.

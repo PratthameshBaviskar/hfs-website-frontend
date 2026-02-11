@@ -68,13 +68,13 @@ const FounderTrustees = () => {
     },
     niranjan: {
       id: 'niranjan',
-      name: 'Mr. Niranjan Hiranandani',
+      name: 'Dr. Niranjan Hiranandani',
       role: 'Trustee, Hiranandani Foundation',
       image: niranjanImg,
-      short: 'Widely regarded as a doyen of the Indian real estate industry, Mr. Niranjan Hiranandani is known for his leadership and commitment to excellence.',
+      short: 'Widely regarded as a doyen of the Indian real estate industry, Dr. Niranjan Hiranandani is known for his leadership and commitment to excellence.',
       bio: (
         <>
-          <p>Mr. Niranjan Hiranandani is recognized for his immense contribution to the Indian infrastructure landscape and its global standing. His passion for education is reflected in the world-class infrastructure and academic standards maintained at Hiranandani Foundation School. He believes in empowering students through knowledge and skill development.</p>
+          <p>Dr. Niranjan Hiranandani is recognized for his immense contribution to the Indian infrastructure landscape and its global standing. His passion for education is reflected in the world-class infrastructure and academic standards maintained at Hiranandani Foundation School. He believes in empowering students through knowledge and skill development.</p>
           <h3 className="detail-subheading">Vision for Excellence</h3>
           <p>As a trustee, he provides strategic direction to the school, ensuring that it remains a beacon of academic excellence and character building in the ever-evolving educational landscape. He remains dedicated to the values and principles laid down by our founders, preparing our students to be the leaders of tomorrow.</p>
           <p>He continues to mentor the institution, ensuring that every student receives a holistic education that prepares them for global challenges while keeping them rooted in core values.</p>
@@ -114,7 +114,7 @@ const FounderTrustees = () => {
           <main className="founder-main-content">
             {/* VISIONARY LEADERSHIP SECTION */}
             <section className="founder-visionary-section">
-              <h2 className="founder-section-title">Visionary Leadership</h2>
+              <h2 className="section-heading">Visionary Leadership</h2>
 
               <div className="founder-visionary-grid">
                 <div className="founder-visionary-text">
@@ -162,7 +162,7 @@ const FounderTrustees = () => {
       {/* TRUSTEES PREMIUM FULL-WIDTH SECTION */}
       <section ref={sectionRef} className="trustees-full-section">
         <div className={`trustees-inner-container ${isVisible ? 'animate-in' : ''}`}>
-          <h2 className="founder-section-title trustees-premium-title">Our Trustees</h2>
+          <h2 className="section-heading trustees-premium-title">Our Trustees</h2>
 
           <div className="trustees-summary-grid">
             {Object.values(trustees).map((t) => (
@@ -175,7 +175,7 @@ const FounderTrustees = () => {
                   <img src={t.image} alt={t.name} />
                 </div>
                 <div className="trustee-summary-content">
-                  <h3 className="trustee-card-name">{t.name}</h3>
+                  <h3 className={`trustee-card-name ${t.id === 'surendra' ? 'surendra-name-fix' : ''}`}>{t.name}</h3>
                   <p className="trustee-card-role">{t.role}</p>
                   <p className="trustee-card-intro">{t.short}</p>
                   <span className="founder-toggle-btn">Read More</span>

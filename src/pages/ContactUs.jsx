@@ -66,8 +66,7 @@ const ContactUs = () => {
             <section className="contact-form-section">
                 <div className="contact-form-container" ref={formRef}>
                     <div className="contact-form-header">
-                        <h2>Get in Touch</h2>
-                        <div className="contact-form-divider" />
+                        <h2 className="section-heading">Get in Touch</h2>
                         <p>We welcome your questions and inquiries. Please fill out the form below, and we will get back to you shortly.</p>
                     </div>
 
@@ -125,8 +124,7 @@ const ContactUs = () => {
 
                 {/* Header */}
                 <div className="location-section-header">
-                    <h3>Find Us</h3>
-                    <div className="section-divider-center"></div>
+                    <h3 className="section-heading">Find Us</h3>
                 </div>
 
                 {/* 2x2 Grid Layout */}

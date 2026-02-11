@@ -13,8 +13,7 @@ function AdmissionsJourney({ className = "" }) {
     <section className={`section ${className}`} id="admissions">
       <div className="section-container">
         <div className="section-header">
-          <h2 className="section-title fade-up">Admissions Journey</h2>
-          <div className="section-divider"></div>
+          <h2 className="section-heading fade-up">Admissions Journey</h2>
           <p className="section-subtitle">
             A straightforward, transparent process designed to help families join our community
             with confidence and clarity.

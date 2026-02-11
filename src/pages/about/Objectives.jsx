@@ -3,8 +3,7 @@ import React from 'react';
 const Objectives = () => {
     return (
         <article>
-            <h1 className="about-page-title">Our Objectives</h1>
-            <div className="about-accent-line"></div>
+            <h1 className="section-heading">Our Objectives</h1>
 
             <p className="about-text">
                 <strong>Academic Excellence:</strong> To provide a robust curriculum that

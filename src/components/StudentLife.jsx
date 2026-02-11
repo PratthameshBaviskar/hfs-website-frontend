@@ -6,8 +6,7 @@ function StudentLife({ className = "" }) {
     <section className={`section ${className}`} id="student-life">
       <div className="section-container">
         <div className="section-header">
-          <h2 className="section-title fade-up">Student Life & Culture</h2>
-          <div className="section-divider"></div>
+          <h2 className="section-heading fade-up">Student Life & Culture</h2>
           <p className="section-subtitle">
             A vibrant, inclusive community where students form lasting friendships, discover their
             passions, and grow into confident, responsible individuals.

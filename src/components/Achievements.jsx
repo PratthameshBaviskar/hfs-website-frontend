@@ -68,8 +68,7 @@ const Achievements = ({ className = "" }) => {
         <section className={`achievements-section ${className}`} id="achievements">
             <div className="section-container">
                 <header className="achievements-header">
-                    <h2 className="section-title fade-up">Achievements & Accolades</h2>
-                    <div className="section-divider"></div>
+                    <h2 className="section-heading fade-up">Achievements & Accolades</h2>
                 </header>
 
                 <div className="achievements-grid">

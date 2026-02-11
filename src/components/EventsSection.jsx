@@ -89,8 +89,7 @@ const EventsSection = ({ className = "" }) => {
         <section className={`section events-section ${className}`} id="events">
             <div className="section-container">
                 <header className="events-header">
-                    <h2 className="section-title fade-up">Events at HFS Powai</h2>
-                    <div className="section-divider"></div>
+                    <h2 className="section-heading fade-up">Events at HFS Powai</h2>
                     <p>Celebrating learning, leadership, culture, and global exposure</p>
                 </header>
 

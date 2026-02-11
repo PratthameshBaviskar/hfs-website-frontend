@@ -12,8 +12,7 @@ function NewsHighlights({ className = "" }) {
     <section className={`section ${className}`} id="news">
       <div className="section-container">
         <div className="section-header">
-          <h2 className="section-title fade-up">News & Highlights</h2>
-          <div className="section-divider"></div>
+          <h2 className="section-heading fade-up">News & Highlights</h2>
           <p className="section-subtitle">
             Stay updated with the latest achievements, events, and milestones from our vibrant
             school community.

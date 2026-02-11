@@ -6,8 +6,7 @@ function LearningBeyondClassroom({ className = "" }) {
     <section className={`section ${className}`} id="beyond-classroom">
       <div className="section-container">
         <div className="section-header">
-          <h2 className="section-title fade-up">Learning Beyond the Classroom</h2>
-          <div className="section-divider"></div>
+          <h2 className="section-heading fade-up">Learning Beyond the Classroom</h2>
           <p className="section-subtitle">
             Holistic development through sports, arts, leadership programs, and co-curricular activities
             that shape well-rounded individuals.

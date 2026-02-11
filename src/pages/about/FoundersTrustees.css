@@ -308,6 +308,10 @@
     margin-bottom: 0.5rem;
 }
 
+.surendra-name-fix {
+    white-space: nowrap;
+}
+
 .trustee-card-role {
     font-size: 0.9rem;
     font-weight: 700;
@@ -463,6 +467,10 @@
     .trustees-summary-grid {
         grid-template-columns: 1fr;
         max-width: 450px;
+    }
+
+    .surendra-name-fix {
+        white-space: normal;
     }
 
     .trustee-detail-card {

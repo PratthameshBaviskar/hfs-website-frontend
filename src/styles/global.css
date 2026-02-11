@@ -742,6 +742,38 @@ body.home-page .hero-wave path {
   line-height: 1.7;
 }
 
+/* ========== Global Heading Style (Admissions Process Source of Truth) ========== */
+.section-heading {
+  font-family: var(--font-heading, serif);
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--primary-indigo);
+  letter-spacing: -0.01em;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  /* 24px after divider essentially */
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.section-heading::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background-color: var(--gold-soft);
+  margin: 24px auto 0;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .section-heading {
+    font-size: 1.9rem;
+    /* ~30px requested */
+  }
+}
+
 /* ========== Card Styles ========== */
 .card {
   background: var(--bg-white);

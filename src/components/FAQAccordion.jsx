@@ -39,7 +39,7 @@ const FAQAccordion = ({ items }) => {
             ref={sectionRef}
         >
             <div className="faq-container">
-                <h2 className="faq-heading">FREQUENTLY ASKED QUESTIONS</h2>
+                <h2 className="section-heading">Frequently Asked Questions</h2>
                 <div className="faq-list">
                     {items.map((item, index) => (
                         <div

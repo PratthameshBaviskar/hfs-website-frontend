@@ -6,9 +6,9 @@ function AcademicFramework() {
     <section className="section" id="academics" style={{ backgroundColor: 'var(--bg-cream)' }}>
       <div className="section-container">
         <div className="section-header">
-          <h2 className="section-title">Academic Framework</h2>
+          <h2 className="section-heading">Academic Framework</h2>
           <p className="section-subtitle">
-            A comprehensive curriculum that balances rigorous academics with real-world application, 
+            A comprehensive curriculum that balances rigorous academics with real-world application,
             preparing students for national and international pathways.
           </p>
         </div>
@@ -18,8 +18,8 @@ function AcademicFramework() {
               CBSE Curriculum
             </h3>
             <p className="card-text" style={{ fontSize: '1.05rem', lineHeight: '1.8' }}>
-              Our CBSE program provides a strong foundation in core subjects while encouraging 
-              analytical thinking and problem-solving skills. The curriculum is designed to meet 
+              Our CBSE program provides a strong foundation in core subjects while encouraging
+              analytical thinking and problem-solving skills. The curriculum is designed to meet
               national standards while incorporating modern pedagogical approaches.
             </p>
             <ul style={{ marginTop: '1.5rem', paddingLeft: '1.5rem', color: 'var(--text-grey)' }}>
@@ -33,8 +33,8 @@ function AcademicFramework() {
               International Outlook
             </h3>
             <p className="card-text" style={{ fontSize: '1.05rem', lineHeight: '1.8' }}>
-              Beyond the curriculum, we foster global perspectives through international collaborations, 
-              exchange programs, and exposure to diverse cultures. Our students develop the skills 
+              Beyond the curriculum, we foster global perspectives through international collaborations,
+              exchange programs, and exposure to diverse cultures. Our students develop the skills
               needed to thrive in an interconnected world.
             </p>
             <ul style={{ marginTop: '1.5rem', paddingLeft: '1.5rem', color: 'var(--text-grey)' }}>

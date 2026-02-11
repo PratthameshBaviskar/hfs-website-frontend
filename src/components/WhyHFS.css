@@ -18,26 +18,7 @@
     align-items: center;
 }
 
-.why-hfs-heading {
-    font-family: var(--font-heading);
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin-bottom: 50px;
-    position: relative;
-    text-align: center;
-}
-
-.why-hfs-heading::after {
-    content: "";
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background-color: var(--gold-soft);
-}
+/* .why-hfs-heading removed - replaced by .section-heading */
 
 /* Honeycomb Grid Logic */
 .why-hfs-honeycomb-grid {

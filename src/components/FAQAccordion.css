@@ -11,28 +11,7 @@
     margin: 0 auto;
 }
 
-.faq-heading {
-    text-align: center;
-    font-family: var(--font-heading, serif);
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    font-weight: 700;
-    color: var(--hfs-maroon, #8b2635);
-    margin-bottom: 5rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    position: relative;
-}
-
-.faq-heading::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background-color: var(--gold-soft, #c5a028);
-}
+/* .faq-heading removed - replaced by .section-heading */
 
 .faq-list {
     display: flex;

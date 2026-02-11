@@ -3,8 +3,7 @@ import React from 'react';
 const AboutGeneral = () => {
     return (
         <article>
-            <h1 className="about-page-title">About Us</h1>
-            <div className="about-accent-line"></div>
+            <h1 className="section-heading">About Us</h1>
 
             <p className="about-text">
                 Hiranandani Foundation School, located within Hiranandani Estate,
@@ -24,7 +23,7 @@ const AboutGeneral = () => {
                 educational approach.
             </p>
 
-            <h2 className="about-section-title">Our Journey</h2>
+            <h2 className="section-heading">Our Journey</h2>
             <p className="about-text">
                 Since our inception, we have been committed to providing world-class
                 education that balances academic rigor with character development,
