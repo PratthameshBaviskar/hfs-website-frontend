@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 @import './frames.css';
 
 /* 
@@ -744,33 +744,32 @@ body.home-page .hero-wave path {
 
 /* ========== Global Heading Style (Admissions Process Source of Truth) ========== */
 .section-heading {
-  font-family: var(--font-heading, serif);
-  font-size: 2.2rem;
-  font-weight: 600;
-  color: var(--primary-indigo);
-  letter-spacing: -0.01em;
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 700;
   text-align: center;
-  margin-bottom: 1.5rem;
-  /* 24px after divider essentially */
+  margin-bottom: 12px;
   position: relative;
-  display: block;
-  width: 100%;
 }
 
 .section-heading::after {
   content: "";
-  display: block;
-  width: 80px;
+  width: 60px;
   height: 3px;
-  background-color: var(--gold-soft);
-  margin: 24px auto 0;
-  border-radius: 2px;
+  background: #D4AF37;
+  /* gold underline */
+  display: block;
+  margin: 12px auto 0;
+}
+
+/* White version for dark backgrounds */
+.section-heading--light {
+  color: #ffffff;
 }
 
 @media (max-width: 768px) {
   .section-heading {
-    font-size: 1.9rem;
-    /* ~30px requested */
+    font-size: 30px;
   }
 }
 
@@ -1402,31 +1401,7 @@ body.home-page .who-we-are-content {
   padding-top: 0.5rem;
 }
 
-/* Divider above title */
-.who-we-are-content::before {
-  content: '';
-  display: block;
-  width: 1px;
-  height: 30px;
-  /* Reduced from 60px */
-  background: var(--gold-soft);
-  /* Gold pairing with Maroon */
-  margin: 0 auto 1.5rem;
-  opacity: 0.8;
-}
 
-.who-we-are-content .section-title {
-  font-family: var(--font-body);
-  /* Clean sans-serif like reference */
-  font-size: 2.2rem;
-  /* Slightly smaller */
-  font-weight: 300;
-  /* Lighter weight */
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #ffffff;
-  margin-bottom: 1.5rem;
-}
 
 body.home-page .who-we-are-content p {
   font-family: var(--font-body);
